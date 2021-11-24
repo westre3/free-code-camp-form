@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+
 :root {
     /* Color palette */
     --clr-10: #590d22;
@@ -55,9 +57,14 @@ body,
 h1,
 p,
 ul,
-li {
+li,
+fieldset {
     margin: 0;
     padding: 0;
+}
+
+ul {
+    list-style: none;
 }
 
 img {
@@ -102,7 +109,56 @@ input[type=range]::-ms-track {
     background: var(--clr-form);
 }
 
+input[type=text] {
+    background: var(--clr-field-bg);
+    color: var(--clr-field-fg);
+    font-family: var(--ff-value);
+    font-weight: var(--fw-value);
+    font-size: var(--fs-value);
+    padding: 0.5rem;
+    border: none;
+}
 
+/* TODO: Change for accessibility */
+input[type=text]:focus {
+    outline: none;
+}
+
+.select-container {
+    position: relative;
+}
+
+.select-container::after {
+    content: ">";
+    font-family: var(--ff-value);
+    font-weight: var(--fw-value);
+    font-size: var(--fs-value);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 2%;
+    padding-right: 2%;
+    transform: rotate(90deg);
+    pointer-events: none;
+}
+
+select {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15rem;
+    text-align: center;
+    background: var(--clr-field-bg);
+    color: var(--clr-field-fg);
+    font-family: var(--ff-value);
+    font-weight: var(--fw-value);
+    font-size: var(--fs-value);
+}
+
+option {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+}
 
 .slider-container {
     width: 100%;
@@ -176,4 +232,53 @@ input[type=range]::-moz-range-thumb {
 .slider-dot-box:last-child > .slider-dot,
 .slider-dot-box.active > .slider-dot {
     background: transparent;
+}
+
+.radio-container {
+    display: flex;
+    gap: 3rem;
+}
+
+.radio-container ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-family: var(--ff-value);
+    font-weight: var(--fw-value);
+    font-size: var(--fs-value);
+    color: var(--clr-field-fg);
+}
+
+input[type=radio] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--clr-field-bg);
+}
+
+input[type="radio"]:checked {
+    position: relative;
+}
+
+input[type="radio"]:checked::before {
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--clr-field-fg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* General Styles */
+
+body {
+    font-family: var(--ff-label);
+    font-weight: var(--fw-label);
+    font-size: var(--fs-label);
 }
