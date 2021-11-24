@@ -1,0 +1,29 @@
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Components */
+
+.components {
+    display: flex;
+    flex-direction: column;
+    gap: 10em;
+    align-items: center;
+}
