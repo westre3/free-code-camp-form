@@ -1,3 +1,49 @@
+:root {
+    /* Color palette */
+    --clr-10: #590d22;
+    --clr-9: #800f2f;
+    --clr-8: #a4133c;
+    --clr-7: #c9184a;
+    --clr-6: #ff4d6d;
+    --clr-5: #ff758f;
+    --clr-4: #ff8fa3;
+    --clr-3: #ffb3c1;
+    --clr-2: #ffccd5;
+    --clr-1: #fff0f3;
+
+    /* Document colors */
+    --clr-form: var(--clr-1);
+    --clr-field-bg: var(--clr-2);
+    --clr-field-fg: var(--clr-10);
+    --clr-label: #000;
+    --clr-h1: var(--clr-6);
+    --clr-slider-thumb: var(--clr-7);
+    --clr-button-bg: var(--clr-7);
+    --clr-button-fg: var(--clr-1);
+
+    /* Fonts */
+    --ff-h1: "Caveat", cursive, sans-serif;
+    --ff-subheading: "Caveat", cursive, sans-serif;
+    --ff-label: "Caveat", cursive, sans-serif;
+    --ff-value: "Caveat", cursive, sans-serif;
+    --ff-button: "Caveat", cursive, sans-serif;
+
+    --fw-h1: 400;
+    --fw-subheading: 400;
+    --fw-label: 400;
+    --fw-value: 700;
+    --fw-button: 700;
+
+    --fs-h1: 4rem;
+    --fs-subheading: 2.25rem;
+    --fs-label: 2.25rem;
+    --fs-checkbox-label: 1.125;
+    --fs-value: 2rem;
+    --fs-button: 3rem;
+
+
+}
+
 /* Reset */
 *,
 *::before,
@@ -19,11 +65,115 @@ img {
     max-width: 100%;
 }
 
+/* Form resets from MDN and CSS Tricks */
+input[type=range] {
+    /* Hide the slider so we can make a custom slider */
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent; 
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* TODO: Update later for accessibility */
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
 /* Components */
 
 .components {
+    padding: 3rem;
     display: flex;
     flex-direction: column;
     gap: 10em;
     align-items: center;
+    background: var(--clr-form);
+}
+
+
+
+.slider-container {
+    width: 100%;
+    position: relative;
+}
+
+input[type=range] {
+    width: 100%;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: var(--clr-field-bg);
+    width: 100%;
+    height: 1.5rem;
+    border-radius: 22.5px;
+    cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    background: var(--clr-slider-thumb);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    margin-top: -0.75rem;
+}
+
+input[type=range]::-moz-range-track {
+    background: var(--clr-field-bg);
+    width: 100%;
+    height: 1.5rem;
+    border-radius: 22.5px;
+    cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+    background: var(--clr-slider-thumb);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    margin-top: -0.75rem;
+    cursor:pointer;
+}
+
+.slider-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+.slider-dot-box {
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--clr-field-fg);
+}
+
+.slider-dot-box:first-child > .slider-dot,
+.slider-dot-box:last-child > .slider-dot,
+.slider-dot-box.active > .slider-dot {
+    background: transparent;
 }
