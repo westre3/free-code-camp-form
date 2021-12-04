@@ -1,5 +1,5 @@
 const output = document.querySelector('output');
-const slider = document.querySelector('#slider');
+const slider = document.querySelector('#quantity');
 const sliderDots = document.querySelectorAll('.slider-dot-box');
 const outputMin = slider.getAttribute('min');
 const outputStep = slider.getAttribute('step');
