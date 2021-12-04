@@ -1,17 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Components</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="components">
-    <img src="assets/cupcake.svg" alt="a colorful cupcake">
-    <!-- Using div instead of fieldset since fieldset can't be
-         a flex container -->
-    <input type="text">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Components</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body class="components">
+        <img src="assets/cupcake.svg" alt="a colorful cupcake">
+        <button action="submit">submit</button>
+        <div class="textarea-container">
+            <label for="anything-else">anything else?</label>
+            <textarea name="anything-else" id="anything-else"></textarea>
+        </div>
+        <div class="checkbox-container">
+            <p>add-ons</p>
+            <ul>
+                <li>
+                    <input type="checkbox" name="sprinkles" id="sprinkles" checked><label for="sprinkles">sprinkles</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="peanuts" id="peanuts"><label for="peanuts">peanuts</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="shaved-chocolate" id="shaved-chocolate"><label for="shaved-chocolate">shaved chocolate</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="chocolate-chips" id="chocolate-chips"><label for="chocolate-chips">chocolate chips</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="peppermint-bits" id="peppermint-bits"><label for="peppermint-bits">peppermint bits</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="cherry" id="cherry"><label for="cherry">cherry</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="chocolate-drizzle" id="chocolate-drizzle"><label for="chocolate-drizzle">chocolate drizzle</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="caramel-drizzle" id="caramel-drizzle"><label for="caramel-drizzle">caramel drizzle</label>
+                </li>
+            </ul>
+        </div>
+        <input type="text">
+        <!-- Using div instead of fieldset since fieldset can't be
+            a flex container -->
     <div class="radio-container">
         <p>baking liner</p>
         <ul>
