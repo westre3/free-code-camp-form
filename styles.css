@@ -118,6 +118,7 @@ input[type='text']:focus {
 
 .select-container {
   position: relative;
+  grid-column: span 3;
 }
 
 .select-container::after {
@@ -157,6 +158,7 @@ option {
   display: grid;
   grid-template-columns: 70% 30%;
   align-items: center;
+  grid-column: span 3;
 }
 
 .slider-container {
@@ -233,7 +235,7 @@ input[type='range']::-moz-range-thumb {
   background: transparent;
 }
 
-.radio-container {
+/* .radio-container {
   display: flex;
   justify-content: space-around;
   gap: 1rem;
@@ -241,7 +243,7 @@ input[type='range']::-moz-range-thumb {
   font-weight: var(--fw-value);
   font-size: var(--fs-value);
   color: var(--clr-field-fg);
-}
+} */
 
 input[type='radio'] {
   -webkit-appearance: none;
@@ -269,12 +271,11 @@ input[type='radio']:checked::before {
   transform: translate(-50%, -50%);
 }
 
-.checkbox-container ul {
-  /* display: grid;
+/* .checkbox-container ul {
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1em;
-  text-align: left; */
-  display: flex;
+  text-align: left;
   justify-content: space-around;
   font-family: var(--ff-value);
   font-weight: var(--fw-value);
@@ -286,7 +287,7 @@ input[type='radio']:checked::before {
   display: flex;
   justify-content: flex-start;
   gap: 0.5rem;
-}
+} */
 
 input[type='checkbox'] {
   -webkit-appearance: none;
@@ -417,7 +418,7 @@ h1 {
 
 form {
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 31% 23% 23% 23%;
   row-gap: 1rem;
   column-gap: 2rem;
   margin-bottom: 3rem;
@@ -426,4 +427,39 @@ form {
 form > label,
 form > p {
   text-align: right;
+}
+
+#name,
+#email,
+#anything-else {
+  grid-column: span 3;
+}
+
+.radio-container,
+.checkbox-container {
+  justify-self: start;
+}
+
+.skip-column {
+  grid-column: 2;
+}
+
+.start-column {
+  grid-column: 1;
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  gap: 0.25em;
+}
+
+.checkbox-container > label {
+  line-height: 0.8;
+}
+
+.checkbox-container > input {
+  flex-shrink: 0;
 }
