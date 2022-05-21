@@ -66,6 +66,10 @@ img {
   max-width: 100%;
 }
 
+input {
+  border-radius: 0;
+}
+
 /* Hide the slider so we can make a custom slider */
 input[type='range'] {
   -webkit-appearance: none;
