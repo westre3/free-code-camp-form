@@ -16,6 +16,7 @@
   /* Document colors */
   --clr-form: var(--clr-1);
   --clr-field-bg: var(--clr-2);
+  --clr-field-bg-focused: var(--clr-6);
   --clr-field-fg: var(--clr-10);
   --clr-label: #000;
   --clr-body: #eee;
@@ -38,7 +39,7 @@
   --fw-value: 700;
   --fw-button: 700;
 
-  --fs-h1: clamp(3rem, 6vw, 4rem);
+  --fs-h1: clamp(3rem, 6vw, 4.5rem);
   --fs-subheading: clamp(1.5rem, 3vw, 2.25rem);
   --fs-label: clamp(1rem, 3vw, 2.25rem);
   --fs-checkbox-label: clamp(0.75rem, 3vw, 1.125rem);
@@ -71,6 +72,10 @@ input[type='range'] {
   -webkit-appearance: none;
   appearance: none;
   background: transparent;
+  border: 2px solid #0000;
+  border-radius: 22.5px;
+  padding-inline: 0.25rem;
+  padding-block: 0.5rem;
 }
 
 input[type='range']::-webkit-slider-thumb {
@@ -78,9 +83,9 @@ input[type='range']::-webkit-slider-thumb {
   appearance: none;
 }
 
-/* TODO: Update later for accessibility */
-input[type='range']:focus {
+input[type='range']:focus-visible {
   outline: none;
+  border-color: var(--clr-field-bg-focused);
 }
 
 input[type='range']::-ms-track {
@@ -111,11 +116,12 @@ input[type='text'] {
   padding: 0.5rem;
   border: none;
   width: 100%;
+  border: 2px solid #0000;
 }
 
-/* TODO: Change for accessibility */
-input[type='text']:focus {
+input[type='text']:focus-visible {
   outline: none;
+  border-color: var(--clr-field-bg-focused);
 }
 
 .select-container {
@@ -148,8 +154,17 @@ select {
   font-family: var(--ff-value);
   font-weight: var(--fw-value);
   font-size: var(--fs-value);
+  border: 2px solid #0000;
 }
 
+select:focus-visible {
+  outline: none;
+  border-color: var(--clr-field-bg-focused);
+}
+
+/* Looks like there's a bug that prevents this from working in Firefox:
+   https://bugzilla.mozilla.org/show_bug.cgi?id=1536148
+*/
 option {
   font-family: inherit;
   font-weight: inherit;
@@ -182,10 +197,12 @@ input[type='range']::-webkit-slider-runnable-track {
 
 input[type='range']::-webkit-slider-thumb {
   background: var(--clr-slider-thumb);
-  width: clamp(1.5rem, 3vw, 3rem);
-  height: clamp(1.5rem, 3vw, 3rem);
+  width: clamp(1.5rem, 3vw, 2.5rem);
+  height: clamp(1.5rem, 3vw, 2.5rem);
   border-radius: 50%;
-  margin-top: -0.75rem;
+
+  /* Centers the thumb on the slider track */
+  transform: translateY(calc((100% - 1.5rem) / -2));
 }
 
 input[type='range']::-moz-range-track {
@@ -198,10 +215,9 @@ input[type='range']::-moz-range-track {
 
 input[type='range']::-moz-range-thumb {
   background: var(--clr-slider-thumb);
-  width: clamp(1.5rem, 3vw, 3rem);
-  height: clamp(1.5rem, 3vw, 3rem);
+  width: clamp(1.5rem, 3vw, 2.5rem);
+  height: clamp(1.5rem, 3vw, 2.5rem);
   border-radius: 50%;
-  margin-top: -0.75rem;
   cursor: pointer;
 }
 
@@ -248,6 +264,12 @@ input[type='radio'] {
   height: clamp(0.5rem, 2vw, 1rem);
   border-radius: 50%;
   background: var(--clr-field-bg);
+  border: 2px solid #0000;
+}
+
+input[type='radio']:focus-visible {
+  outline: none;
+  border-color: var(--clr-field-bg-focused);
 }
 
 input[type='radio']:checked {
@@ -273,6 +295,12 @@ input[type='checkbox'] {
   width: clamp(0.5rem, 2vw, 1rem);
   height: clamp(0.5rem, 2vw, 1rem);
   background: var(--clr-field-bg);
+  border: 2px solid #0000;
+}
+
+input[type='checkbox']:focus-visible {
+  outline: none;
+  border-color: var(--clr-field-bg-focused);
 }
 
 input[type='checkbox']:checked {
@@ -301,13 +329,13 @@ textarea {
   font-family: var(--ff-value);
   font-weight: var(--fw-value);
   font-size: var(--fs-value);
-  border: none;
+  border: 2px solid #0000;
   border-radius: 0.5em;
 }
 
-/* TODO: Change for accessibility */
-textarea:focus {
+textarea:focus-visible {
   outline: none;
+  border-color: var(--clr-field-bg-focused);
 }
 
 button {
@@ -325,7 +353,9 @@ button {
   transition: transform ease 150ms;
 }
 
-button:hover {
+button:hover,
+button:focus-visible {
+  outline: none;
   transform: scale(1);
   animation-name: jiggle;
   animation-duration: 500ms;
