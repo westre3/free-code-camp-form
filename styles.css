@@ -25,7 +25,7 @@
   --clr-button-bg: var(--clr-7);
   --clr-button-fg: var(--clr-1);
 
-  /* Fonts */
+  /* Typography */
   --ff-h1: 'Caveat', cursive, sans-serif;
   --ff-subheading: 'Caveat', cursive, sans-serif;
   --ff-label: 'Caveat', cursive, sans-serif;
@@ -38,11 +38,12 @@
   --fw-value: 700;
   --fw-button: 700;
 
-  --fs-h1: 4rem;
-  --fs-subheading: 2.25rem;
-  --fs-label: 2.25rem;
-  --fs-checkbox-label: 1.125rem;
-  --fs-value: 2rem;
+  --fs-h1: clamp(3rem, 6vw, 4rem);
+  --fs-subheading: clamp(1.5rem, 3vw, 2.25rem);
+  --fs-label: clamp(1rem, 3vw, 2.25rem);
+  --fs-checkbox-label: clamp(0.75rem, 3vw, 1.125rem);
+  --fs-value: clamp(1rem, 3vw, 2.25rem);
+  --fs-slider-value: clamp(1rem, 3vw, 2.25rem);
   --fs-button: 3rem;
 }
 
@@ -109,6 +110,7 @@ input[type='text'] {
   font-size: var(--fs-value);
   padding: 0.5rem;
   border: none;
+  width: 100%;
 }
 
 /* TODO: Change for accessibility */
@@ -180,8 +182,8 @@ input[type='range']::-webkit-slider-runnable-track {
 
 input[type='range']::-webkit-slider-thumb {
   background: var(--clr-slider-thumb);
-  width: 3rem;
-  height: 3rem;
+  width: clamp(1.5rem, 3vw, 3rem);
+  height: clamp(1.5rem, 3vw, 3rem);
   border-radius: 50%;
   margin-top: -0.75rem;
 }
@@ -196,8 +198,8 @@ input[type='range']::-moz-range-track {
 
 input[type='range']::-moz-range-thumb {
   background: var(--clr-slider-thumb);
-  width: 3rem;
-  height: 3rem;
+  width: clamp(1.5rem, 3vw, 3rem);
+  height: clamp(1.5rem, 3vw, 3rem);
   border-radius: 50%;
   margin-top: -0.75rem;
   cursor: pointer;
@@ -216,15 +218,15 @@ input[type='range']::-moz-range-thumb {
 }
 
 .slider-dot-box {
-  width: 3rem;
+  width: clamp(0.25rem, 3vw, 3rem);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .slider-dot {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: clamp(0.1rem, 1vw, 0.5rem);
+  height: clamp(0.1rem, 1vw, 0.5rem);
   border-radius: 50%;
   background: var(--clr-field-fg);
 }
@@ -235,21 +237,15 @@ input[type='range']::-moz-range-thumb {
   background: transparent;
 }
 
-/* .radio-container {
-  display: flex;
-  justify-content: space-around;
-  gap: 1rem;
-  font-family: var(--ff-value);
-  font-weight: var(--fw-value);
-  font-size: var(--fs-value);
-  color: var(--clr-field-fg);
-} */
+.slider output {
+  font-size: var(--fs-slider-value);
+}
 
 input[type='radio'] {
   -webkit-appearance: none;
   appearance: none;
-  width: 1rem;
-  height: 1rem;
+  width: clamp(0.5rem, 2vw, 1rem);
+  height: clamp(0.5rem, 2vw, 1rem);
   border-radius: 50%;
   background: var(--clr-field-bg);
 }
@@ -261,8 +257,8 @@ input[type='radio']:checked {
 input[type='radio']:checked::before {
   content: '';
   display: block;
-  width: 0.5rem;
-  height: 0.5rem;
+  width: clamp(0.1rem, 1vw, 0.5rem);
+  height: clamp(0.1rem, 1vw, 0.5rem);
   border-radius: 50%;
   background: var(--clr-field-fg);
   position: absolute;
@@ -271,31 +267,12 @@ input[type='radio']:checked::before {
   transform: translate(-50%, -50%);
 }
 
-/* .checkbox-container ul {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 1em;
-  text-align: left;
-  justify-content: space-around;
-  font-family: var(--ff-value);
-  font-weight: var(--fw-value);
-  font-size: var(--fs-checkbox-label);
-  color: var(--clr-field-fg);
-}
-
-.checkbox-container li {
-  display: flex;
-  justify-content: flex-start;
-  gap: 0.5rem;
-} */
-
 input[type='checkbox'] {
   -webkit-appearance: none;
   appearance: none;
-  width: 1rem;
-  height: 1rem;
+  width: clamp(0.5rem, 2vw, 1rem);
+  height: clamp(0.5rem, 2vw, 1rem);
   background: var(--clr-field-bg);
-  margin-top: 0.25ex; /* force checkbox to align with text */
 }
 
 input[type='checkbox']:checked {
@@ -340,7 +317,7 @@ button {
   font-family: var(--ff-button);
   font-weight: var(--fw-button);
   font-size: var(--fs-button);
-  width: 19.5rem;
+  width: clamp(15rem, 65vw, 19.5rem);
   border: none;
   border-radius: 15px;
   cursor: pointer;
@@ -387,7 +364,8 @@ body {
 }
 
 .container {
-  max-width: max(60vw, 42rem);
+  width: 90vw;
+  max-width: 42rem;
   margin: 3rem auto;
   background-color: var(--clr-form);
   padding-block: 2.5rem;
@@ -405,6 +383,7 @@ h1 {
   font-weight: var(--fw-h1);
   font-size: var(--fs-h1);
   color: var(--clr-h1);
+  margin-bottom: 1rem;
 }
 
 .subheading {
@@ -416,17 +395,25 @@ h1 {
   margin-bottom: 3rem;
 }
 
+.hero {
+  margin-bottom: 1rem;
+}
+
 form {
+  width: 95%;
+  max-width: 42rem;
   display: grid;
-  grid-template-columns: 31% 23% 23% 23%;
+  grid-template-columns: 4fr 3fr 3fr 3fr;
   row-gap: 1rem;
-  column-gap: 2rem;
+  column-gap: 2vw;
   margin-bottom: 3rem;
+  align-items: center;
 }
 
 form > label,
 form > p {
   text-align: right;
+  line-height: 1;
 }
 
 #name,
@@ -440,6 +427,13 @@ form > p {
   justify-self: start;
 }
 
+.radio-container {
+  font-family: var(--ff-value);
+  font-weight: var(--fw-value);
+  font-size: var(--fs-value);
+  color: var(--clr-field-fg);
+}
+
 .skip-column {
   grid-column: 2;
 }
@@ -449,6 +443,10 @@ form > p {
 }
 
 .checkbox-container {
+  font-family: var(--ff-value);
+  font-weight: var(--fw-value);
+  font-size: var(--fs-checkbox-label);
+  color: var(--clr-field-fg);
   display: flex;
   justify-content: flex-start;
   align-items: center;
