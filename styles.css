@@ -96,7 +96,8 @@ input[type='range']::-ms-track {
 }
 
 /* Components */
-input[type='text'] {
+input[type='text'],
+input[type='email'] {
   background: var(--clr-field-bg);
   color: var(--clr-field-fg);
   font-family: var(--ff-value);
@@ -108,7 +109,8 @@ input[type='text'] {
   border: 2px solid #0000;
 }
 
-input[type='text']:focus-visible {
+input[type='text']:focus-visible,
+input[type='email']:focus-visible {
   outline: none;
   border-color: var(--clr-field-bg-focused);
 }
