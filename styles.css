@@ -66,9 +66,8 @@ img {
   max-width: 100%;
 }
 
-/* Form resets from MDN and CSS Tricks */
+/* Hide the slider so we can make a custom slider */
 input[type='range'] {
-  /* Hide the slider so we can make a custom slider */
   -webkit-appearance: none;
   appearance: none;
   background: transparent;
@@ -97,16 +96,6 @@ input[type='range']::-ms-track {
 }
 
 /* Components */
-
-.components {
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 10em;
-  align-items: center;
-  background: var(--clr-form);
-}
-
 input[type='text'] {
   background: var(--clr-field-bg);
   color: var(--clr-field-fg);
