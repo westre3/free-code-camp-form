@@ -99,6 +99,81 @@ input[type='range']::-ms-track {
   color: transparent;
 }
 
+/* General Styles */
+
+body {
+  font-family: var(--ff-label);
+  font-weight: var(--fw-label);
+  font-size: var(--fs-label);
+  background-color: var(--clr-body);
+}
+
+.container {
+  width: 95vw;
+  max-width: 42rem;
+  margin: 1rem auto;
+  background-color: var(--clr-form);
+  padding-block: 2.5rem;
+  padding-inline: 1.5rem;
+  border-radius: 1em;
+}
+
+.container > * {
+  margin-inline: auto;
+  text-align: center;
+}
+
+h1 {
+  font-family: var(--ff-h1);
+  font-weight: var(--fw-h1);
+  font-size: var(--fs-h1);
+  color: var(--clr-h1);
+  margin-bottom: 1rem;
+}
+
+.subheading {
+  font-family: var(--ff-subheading);
+  font-weight: var(--fw-subheading);
+  font-size: var(--fs-subheading);
+  color: var(--clr-subheading);
+  max-width: 30ch;
+  margin-bottom: 3rem;
+}
+
+.hero {
+  margin-bottom: 1rem;
+}
+
+form {
+  width: 100%;
+  max-width: 42rem;
+  display: grid;
+  grid-template-columns: 2fr 3fr 3fr 3fr;
+  row-gap: 1rem;
+  column-gap: 2vw;
+  margin-bottom: 3rem;
+  align-items: center;
+}
+
+form > label,
+form > p {
+  text-align: left;
+  line-height: 1;
+  margin-right: 0.25rem;
+}
+
+.span-column-3 {
+  grid-column: span 3;
+}
+
+.start-column-2 {
+  grid-column: 2;
+}
+
+.start-column-1 {
+  grid-column: 1;
+}
+
 /* Components */
 input[type='text'],
 input[type='email'] {
@@ -285,6 +360,18 @@ input[type='radio']:checked::before {
   transform: translate(-50%, -50%);
 }
 
+.radio-container,
+.checkbox-container {
+  justify-self: start;
+}
+
+.radio-container {
+  font-family: var(--ff-value);
+  font-weight: var(--fw-value);
+  font-size: var(--fs-value);
+  color: var(--clr-field-fg);
+}
+
 input[type='checkbox'] {
   -webkit-appearance: none;
   appearance: none;
@@ -311,6 +398,26 @@ input[type='checkbox']:checked::before {
   background-repeat: no-repeat;
   width: 125%;
   height: 125%;
+}
+
+.checkbox-container {
+  font-family: var(--ff-value);
+  font-weight: var(--fw-value);
+  font-size: var(--fs-checkbox-label);
+  color: var(--clr-field-fg);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  gap: 0.25em;
+}
+
+.checkbox-container > label {
+  line-height: 0.8;
+}
+
+.checkbox-container > input {
+  flex-shrink: 0;
 }
 
 textarea {
@@ -378,113 +485,4 @@ button:active {
   100% {
     transform: rotateZ(0deg);
   }
-}
-
-/* General Styles */
-
-body {
-  font-family: var(--ff-label);
-  font-weight: var(--fw-label);
-  font-size: var(--fs-label);
-  background-color: var(--clr-body);
-}
-
-.container {
-  width: 95vw;
-  max-width: 42rem;
-  margin: 1rem auto;
-  background-color: var(--clr-form);
-  padding-block: 2.5rem;
-  padding-inline: 1.5rem;
-  border-radius: 1em;
-}
-
-.container > * {
-  margin-inline: auto;
-  text-align: center;
-}
-
-h1 {
-  font-family: var(--ff-h1);
-  font-weight: var(--fw-h1);
-  font-size: var(--fs-h1);
-  color: var(--clr-h1);
-  margin-bottom: 1rem;
-}
-
-.subheading {
-  font-family: var(--ff-subheading);
-  font-weight: var(--fw-subheading);
-  font-size: var(--fs-subheading);
-  color: var(--clr-subheading);
-  max-width: 30ch;
-  margin-bottom: 3rem;
-}
-
-.hero {
-  margin-bottom: 1rem;
-}
-
-form {
-  width: 100%;
-  max-width: 42rem;
-  display: grid;
-  grid-template-columns: 2fr 3fr 3fr 3fr;
-  row-gap: 1rem;
-  column-gap: 2vw;
-  margin-bottom: 3rem;
-  align-items: center;
-}
-
-form > label,
-form > p {
-  text-align: left;
-  line-height: 1;
-  margin-right: 0.25rem;
-}
-
-#name,
-#email,
-#anything-else {
-  grid-column: span 3;
-}
-
-.radio-container,
-.checkbox-container {
-  justify-self: start;
-}
-
-.radio-container {
-  font-family: var(--ff-value);
-  font-weight: var(--fw-value);
-  font-size: var(--fs-value);
-  color: var(--clr-field-fg);
-}
-
-.skip-column {
-  grid-column: 2;
-}
-
-.start-column {
-  grid-column: 1;
-}
-
-.checkbox-container {
-  font-family: var(--ff-value);
-  font-weight: var(--fw-value);
-  font-size: var(--fs-checkbox-label);
-  color: var(--clr-field-fg);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: left;
-  gap: 0.25em;
-}
-
-.checkbox-container > label {
-  line-height: 0.8;
-}
-
-.checkbox-container > input {
-  flex-shrink: 0;
 }
