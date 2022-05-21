@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
 
 :root {
   /* Color palette */
@@ -35,16 +35,16 @@
 
   --fw-h1: 400;
   --fw-subheading: 400;
-  --fw-label: 400;
-  --fw-value: 700;
+  --fw-label: 600;
+  --fw-value: 500;
   --fw-button: 700;
 
-  --fs-h1: clamp(3rem, 6vw, 4.5rem);
-  --fs-subheading: clamp(1.5rem, 3vw, 2.25rem);
-  --fs-label: clamp(1rem, 3vw, 2.25rem);
-  --fs-checkbox-label: clamp(0.75rem, 3vw, 1.125rem);
-  --fs-value: clamp(1rem, 3vw, 2.25rem);
-  --fs-slider-value: clamp(1rem, 3vw, 2.25rem);
+  --fs-h1: clamp(3.75rem, 6vw, 4.5rem);
+  --fs-subheading: clamp(1.75rem, 3vw, 2.25rem);
+  --fs-label: clamp(1.75rem, 3vw, 2.25rem);
+  --fs-checkbox-label: clamp(1rem, 3vw, 1.125rem);
+  --fs-value: clamp(1.5rem, 3vw, 2.25rem);
+  --fs-slider-value: clamp(1.5rem, 3vw, 2.25rem);
   --fs-button: 3rem;
 }
 
@@ -119,16 +119,16 @@ input[type='text']:focus-visible {
 }
 
 .select-container::after {
+  display: block;
   content: '>';
   font-family: var(--ff-value);
   font-weight: var(--fw-value);
   font-size: var(--fs-value);
+  line-height: 0.5;
   position: absolute;
-  top: 0;
-  right: 0;
-  padding-top: 2%;
-  padding-right: 2%;
-  transform: rotate(90deg);
+  top: 55%;
+  right: 2%;
+  transform: translateY(-50%) rotate(90deg);
   pointer-events: none;
 }
 
@@ -162,7 +162,7 @@ option {
 
 .slider {
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-rows: 90% 10%;
   align-items: center;
   grid-column: span 3;
 }
@@ -244,6 +244,7 @@ input[type='range']::-moz-range-thumb {
 
 .slider output {
   font-size: var(--fs-slider-value);
+  line-height: 0.8;
 }
 
 input[type='radio'] {
@@ -383,12 +384,12 @@ body {
 }
 
 .container {
-  width: 90vw;
+  width: 95vw;
   max-width: 42rem;
-  margin: 3rem auto;
+  margin: 1rem auto;
   background-color: var(--clr-form);
   padding-block: 2.5rem;
-  padding-inline: 3.5rem;
+  padding-inline: 1.5rem;
   border-radius: 1em;
 }
 
@@ -419,10 +420,10 @@ h1 {
 }
 
 form {
-  width: 95%;
+  width: 100%;
   max-width: 42rem;
   display: grid;
-  grid-template-columns: 4fr 3fr 3fr 3fr;
+  grid-template-columns: 3fr 3fr 3fr 3fr;
   row-gap: 1rem;
   column-gap: 2vw;
   margin-bottom: 3rem;
@@ -433,6 +434,7 @@ form > label,
 form > p {
   text-align: right;
   line-height: 1;
+  margin-right: 0.25rem;
 }
 
 #name,
